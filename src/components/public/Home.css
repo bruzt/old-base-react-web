@@ -1,0 +1,37 @@
+
+#logo-public {
+
+    border: solid 2px gray;
+}
+
+#header-public {
+    
+    border: solid 2px red;
+}
+
+#footer-public {
+
+    border: solid 2px orange;
+}
+
+#right-panel-public {
+
+    border: solid 2px forestgreen;
+}
+
+#menu-public {
+
+    border: solid 2px yellow;
+}
+
+#main-public {
+    
+    border: solid 2px dodgerblue;
+}
+
+/*@media (max-width: 768px) {
+    .container {
+      width: 100%;
+      max-width: none;
+    }*
+  }*/
