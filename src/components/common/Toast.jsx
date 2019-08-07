@@ -11,56 +11,62 @@ class Toast extends Component {
 
     componentDidUpdate(){
 
-       /* if(this.props.toast.text.trim()){*/
+        window.$('.toast').toast('show')
+    }
 
-            window.$('.toast').toast('show')
+    renderToasts(){
 
-            /*setTimeout(() => {
-                this.props.setToast({ title: '', text: '', color: ''});
-            }, 5000);
-        }*/
+        return this.props.toast.messages.map( (toast) => {
+
+            let color = null;
+        
+            switch(toast.color){
+    
+                case 'success':
+                case 'green':
+                    color = '#90EE90';
+                break;
+    
+                case 'warning':
+                case 'yellow':
+                    color = '#ede858';
+                break;
+    
+                case 'danger':
+                case 'red':
+                    color = '#FF6347';
+                break;
+    
+                default:
+                    color = toast.color;
+            }
+
+            return (
+                <DivToast className="toast" role="alert" data-delay="5000" aria-live="assertive" aria-atomic="true">
+                    <DivToastHeader className="toast-header" color={color}>
+                        <strong className="mr-auto">{toast.title || 'Mensagem'}</strong>
+                        <button type="button" className="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </DivToastHeader>
+                    <div className="toast-body">
+                        <PCenter>{toast.text}</PCenter>
+                    </div>
+                </DivToast>
+            );
+        });
     }
 
     render() {
 
-        let color = null;
-        
-        switch(this.props.toast.color){
-
-            case 'success':
-            case 'green':
-                color = '#90EE90';
-            break;
-
-            case 'warning':
-            case 'yellow':
-                color = '#ede858';
-            break;
-
-            case 'danger':
-            case 'red':
-                color = '#FF6347';
-            break;
-
-            default:
-                color = '';
-        }
-
         return (
             <>
             {/*<If test={this.props.toast.text.trim()}>*/}
+            
                 <DivAbsolute>
-                    <DivToast className="toast" role="alert" data-delay="5000" aria-live="assertive" aria-atomic="true">
-                        <DivToastHeader className="toast-header" color={color}>
-                            <strong className="mr-auto">{this.props.toast.title || 'Mensagem'}</strong>
-                            <button type="button" className="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </DivToastHeader>
-                        <div className="toast-body">
-                            <PCenter>{this.props.toast.text}</PCenter>
-                        </div>
-                    </DivToast>
+                    
+                    {this.renderToasts()}
+
                 </DivAbsolute>
             {/*</If>*/}
             </>

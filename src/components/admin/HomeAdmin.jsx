@@ -10,7 +10,9 @@ import MainAdmin from './template/MainAdmin';
 
 class AdminHome extends React.Component {
 
-    componentWillMount(){
+    constructor(props){
+        super(props);
+
         document.title = 'React Admin';
     }
 

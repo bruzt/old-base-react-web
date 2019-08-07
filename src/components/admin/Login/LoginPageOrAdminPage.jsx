@@ -51,7 +51,7 @@ class LoginPageOrAdminPage extends React.Component {
 
             } catch (error) {
                 console.error(error);
-                this.props.setToast({ title: 'Erro', text: 'Erro interno, tente mais tarde', color: 'red'});
+                this.props.setToast({ messages: [{ title: 'Erro', text: 'Erro interno, tente mais tarde', color: 'red' }] });
             }
         }
     }

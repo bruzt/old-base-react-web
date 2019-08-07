@@ -1,8 +1,10 @@
 
 const initialState = {
-    title: '',
-    text: '',
-    color: ''
+    messages: [{
+        title: '',
+        text: '',
+        color: ''
+    }]
 }
 
 export default (state = initialState, action) => {
@@ -12,9 +14,7 @@ export default (state = initialState, action) => {
         case 'TOAST_THROWED':
             return {
                 ...state,
-                title: action.payload.title,
-                text: action.payload.text,
-                color: action.payload.color
+                messages: [...action.payload.messages]
             }
 
         default:

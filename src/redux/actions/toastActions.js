@@ -1,8 +1,8 @@
 
-export const setToast = (message) => {
+export const setToast = (messages) => {
 
     return {
         type: 'TOAST_THROWED',
-        payload: message
+        payload: messages
     }
 }

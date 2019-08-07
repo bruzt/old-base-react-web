@@ -10,7 +10,9 @@ import RightPanelPublic from './template/RightPanelPublic';
 
 class Home extends React.Component {
 
-    componentWillMount(){
+    constructor(props){
+        super(props);
+
         document.title = 'React Home';
     }
 

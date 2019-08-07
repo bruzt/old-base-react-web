@@ -15,6 +15,8 @@ class LoginPage extends React.Component {
     constructor(props) {
         super(props);
 
+        document.title = 'React Login';
+
         this.state = { 
             user: {
                 name: '',
@@ -125,8 +127,7 @@ class LoginPage extends React.Component {
             
         } catch (error) {
             console.error(error);
-            this.props.setToast({ title: 'Erro', text: error.response.data.errors[0], color: 'red' });
-            //this.setState({ errors: error.response.data.errors });
+            this.props.setToast({ messages: [{ title: 'Erro', text: error.response.data.errors[0], color: 'red' }] });
         }
     }
 
@@ -145,7 +146,7 @@ class LoginPage extends React.Component {
 
             return (
                 <div id='home-login'>
-                    {/* <Logo id='logo-login' /> */}
+                   
                     <Header id='header-login' />
 
                     <div className="container col-xl-4 col-lg-6 col-md-8 col-sm-10 col-xs-12" id="main-login">
