@@ -48,12 +48,10 @@ class AdminHome extends React.Component {
                     </div>
                 </div>
 
-                <div className="row">
-                    <div className="col p-0">
+                <div className="container-fluid p-0">
 
-                        <Footer id='footer-admin' />
+                    <Footer id='footer-admin' />
 
-                    </div>
                 </div>
 
             </div>

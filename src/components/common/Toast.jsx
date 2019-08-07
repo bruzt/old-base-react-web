@@ -11,14 +11,14 @@ class Toast extends Component {
 
     componentDidUpdate(){
 
-        if(this.props.toast.text.trim()){
+       /* if(this.props.toast.text.trim()){*/
 
             window.$('.toast').toast('show')
 
-            setTimeout(() => {
+            /*setTimeout(() => {
                 this.props.setToast({ title: '', text: '', color: ''});
             }, 5000);
-        }
+        }*/
     }
 
     render() {
@@ -47,7 +47,8 @@ class Toast extends Component {
         }
 
         return (
-            <If test={this.props.toast.text.trim()}>
+            <>
+            {/*<If test={this.props.toast.text.trim()}>*/}
                 <DivAbsolute>
                     <DivToast className="toast" role="alert" data-delay="5000" aria-live="assertive" aria-atomic="true">
                         <DivToastHeader className="toast-header" color={color}>
@@ -61,7 +62,8 @@ class Toast extends Component {
                         </div>
                     </DivToast>
                 </DivAbsolute>
-            </If>
+            {/*</If>*/}
+            </>
         );
     }
 }

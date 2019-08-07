@@ -199,7 +199,10 @@ class LoginPage extends React.Component {
                         </div>
                     </div>
 
-                    <Footer id='footer-login' />
+                    <div className='container-fluid'>
+                        <Footer id='footer-login' />
+                    </div>
+                    
                 </div>
             );
         }
