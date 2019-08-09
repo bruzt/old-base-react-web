@@ -8,7 +8,7 @@ import MenuPublic from './template/MenuPublic';
 import MainPublic from './template/MainPublic';
 import RightPanelPublic from './template/RightPanelPublic';
 
-class Home extends React.Component {
+export default class Home extends React.Component {
 
     constructor(props){
         super(props);
@@ -20,11 +20,11 @@ class Home extends React.Component {
         return (
             <React.Fragment>
 
-                <div className='container-fluid' id='home-public'>
+                <div className='container-fluid'>
                     <div className="row">
                         <div className="col p-0">
                             
-                            <Header id='header-public' login='true' />
+                            <Header login='true' />
 
                         </div>
                     </div>
@@ -55,14 +55,16 @@ class Home extends React.Component {
                 </div>
                 
                 <div className="container-fluid">
+                    <div className="row">
+                        <div className="col p-0">
 
-                    <Footer id='footer-public' />
-                
+                            <Footer />
+
+                        </div>
+                    </div>
                 </div>
 
             </React.Fragment>
         );
     }
 }
-
-export default Home;

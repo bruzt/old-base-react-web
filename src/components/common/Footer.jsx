@@ -5,15 +5,9 @@ export default class Footer extends React.Component {
 
     render(){
         return (
-            <div className="row">
-                <div className="col p-0">
-
-                    <StyledFooter {...this.props}>
-                        RODAPÉ
-                    </StyledFooter>
-
-                </div>
-            </div>
+            <StyledFooter>
+                RODAPÉ
+            </StyledFooter>
         );
     }
 }
@@ -22,5 +16,6 @@ const StyledFooter = styled.footer`
     display: flex;
     height: 100px;
     justify-content: center;
+    align-items: center;
     background: grey;
 `;

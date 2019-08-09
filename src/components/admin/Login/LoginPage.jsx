@@ -32,49 +32,6 @@ class LoginPage extends React.Component {
         }
     }
      
-    handleChange(event) {
-
-        let user = { ...this.state.user };
-
-        switch(event.target.name){
-
-            case 'name':
-
-                user.name = event.target.value;
-        
-                this.setState({ user });
-            break;
-
-            case 'email':
-
-                user.email = event.target.value;
-        
-                this.setState({ user });
-            break;
-
-            case 'password':
-
-                user.password = event.target.value;
-        
-                this.setState({ user });
-            break;
-
-            case 'confirmPassword':
-
-                user.confirmPassword = event.target.value;
-        
-                this.setState({ user });
-            break;
-
-            case 'keepConnected':
-
-                this.setState({ keepConnected: event.target.checked });
-           
-            break;
-            
-        }
-    }
-     
     handleSubmit(event) {
 
         event.preventDefault();
@@ -127,7 +84,9 @@ class LoginPage extends React.Component {
             
         } catch (error) {
             console.error(error);
-            this.props.setToast({ messages: [{ title: 'Erro', text: error.response.data.errors[0], color: 'red' }] });
+            error.response.data.errors.forEach( (message) => {
+                this.props.setToast({ messages: [{ title: 'Erro', text: message, color: 'red' }] });
+            });
         }
     }
 
@@ -160,21 +119,21 @@ class LoginPage extends React.Component {
                                     <If test={! this.state.loginMode}>
                                         <div className="form-group">
                                             <label htmlFor="name">Nome</label>
-                                            <input type="text" className='form-control' value={this.state.user.name} onChange={(event) => this.handleChange(event)} name='name' placeholder='Insira seu nome' />
+                                            <input type="text" className='form-control' value={this.state.user.name} onChange={(event) => this.setState({ ...this.state, user: { ...this.state.user, name: event.target.value}})} placeholder='Insira seu nome' />
                                         </div>
                                     </If>
                                     <div className="form-group">
                                         <label htmlFor="email">E-mail</label>
-                                        <input type="email" className='form-control' value={this.state.user.email} onChange={(event) => this.handleChange(event)} name='email' placeholder='Insira seu e-mail' />
+                                        <input type="email" className='form-control' value={this.state.user.email} onChange={(event) => this.setState({ ...this.state, user: { ...this.state.user, email: event.target.value}})} placeholder='Insira seu e-mail' />
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="password">Senha</label>
-                                        <input type="password" className='form-control' value={this.state.user.password} onChange={(event) => this.handleChange(event)} name='password' placeholder='Insira sua senha' />
+                                        <input type="password" className='form-control' value={this.state.user.password} onChange={(event) => this.setState({ ...this.state, user: { ...this.state.user, password: event.target.value}})} placeholder='Insira sua senha' />
                                     </div>
                                     <If test={! this.state.loginMode}>
                                         <div className="form-group">
                                             <label htmlFor="confirmPassword">Confirme a senha</label>
-                                            <input type="password" className='form-control' value={this.state.user.confirmPassword} onChange={(event) => this.handleChange(event)} name='confirmPassword' placeholder='Confirme sua senha' />
+                                            <input type="password" className='form-control' value={this.state.user.confirmPassword} onChange={(event) => this.setState({ ...this.state, user: { ...this.state.user, confirmPassword: event.target.value}})} placeholder='Confirme sua senha' />
                                         </div>
                                     </If>
                                     
@@ -201,7 +160,13 @@ class LoginPage extends React.Component {
                     </div>
 
                     <div className='container-fluid'>
-                        <Footer id='footer-login' />
+                        <div className="row">
+                            <div className="col p-0">
+
+                                <Footer id='footer-login' />
+                                
+                            </div>
+                        </div>
                     </div>
                     
                 </div>

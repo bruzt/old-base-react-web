@@ -18,50 +18,51 @@ export default class Header extends React.Component {
 
     render(){
         return (
-            <StyledHeader {...this.props}>
+            <StyledHeader>
+                
+                    <div className="col">
 
-                <div className="col">
-
-                    <StyledNavLogo className="navbar">
-                        <Link to="/" className='nav-brand'>
-                            <img src={logoImg} alt="logo-img"/>
-                        </Link>
-                    </StyledNavLogo>
-
-                </div>
-
-                <div className="col d-md-flex d-none justify-content-center">
-
-                    <h6>CABEÇALHO</h6>
-                    
-                </div>
-
-                <div className="col d-flex">
-
-                    <If test={this.props.login}>
-                        <StyledAdminNavWrapper>
-                            <Link to='/admin' className='btn'>
-                                Login <i className="fa fa-sign-in" />
+                        <StyledNavLogo className="navbar">
+                            <Link to="/" className='nav-brand'>
+                                <img src={logoImg} alt="logo-img"/>
                             </Link>
-                        </StyledAdminNavWrapper>
-                    </If>
+                        </StyledNavLogo>
 
-                    <If test={this.props.admin}>
-                        <StyledAdminNavWrapper>
-                            <button type='button' className='btn' onClick={() => this.logOut()}>
-                                Logout <i className="fa fa-sign-out" />
-                            </button>
-                        </StyledAdminNavWrapper>
-                    </If>
+                    </div>
 
-                </div>  
+                    <MidHeader className="col">
 
+                        <h6>CABEÇALHO</h6>
+                        
+                    </MidHeader>
+
+                    <div className="col d-flex">
+
+                        <If test={this.props.login}>
+                            <StyledAdminNavWrapper>
+                                <Link to='/admin' className='btn'>
+                                    Login <i className="fa fa-sign-in" />
+                                </Link>
+                            </StyledAdminNavWrapper>
+                        </If>
+
+                        <If test={this.props.admin}>
+                            <StyledAdminNavWrapper>
+                                <button type='button' className='btn' onClick={() => this.logOut()}>
+                                    Logout <i className="fa fa-sign-out" />
+                                </button>
+                            </StyledAdminNavWrapper>
+                        </If>
+
+                    </div>  
+                    
             </StyledHeader>
         );
     }
 }
 
 const StyledHeader = styled.header`
+    display: flex;
     height: 100px;
     background: grey;
 `;
@@ -80,4 +81,14 @@ const StyledAdminNavWrapper = styled.nav`
     right: 1px;
     bottom: 1px;
     z-index: 10;
+`;
+
+const MidHeader = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 768px){
+        display: none;
+    }
 `;

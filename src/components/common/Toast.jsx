@@ -5,8 +5,6 @@ import styled from 'styled-components';
 
 import { setToast } from '../../redux/actions/toastActions';
 
-import If from '../common/If';
-
 class Toast extends Component {
 
     componentDidUpdate(){
@@ -16,7 +14,7 @@ class Toast extends Component {
 
     renderToasts(){
 
-        return this.props.toast.messages.map( (toast) => {
+        return this.props.toast.messages.map( (toast, index) => {
 
             let color = null;
         
@@ -42,7 +40,7 @@ class Toast extends Component {
             }
 
             return (
-                <DivToast className="toast" role="alert" data-delay="5000" aria-live="assertive" aria-atomic="true">
+                <DivToast key={index} className="toast" role="alert" data-delay="5000" aria-live="assertive" aria-atomic="true">
                     <DivToastHeader className="toast-header" color={color}>
                         <strong className="mr-auto">{toast.title || 'Mensagem'}</strong>
                         <button type="button" className="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
@@ -60,16 +58,11 @@ class Toast extends Component {
     render() {
 
         return (
-            <>
-            {/*<If test={this.props.toast.text.trim()}>*/}
-            
-                <DivAbsolute>
-                    
-                    {this.renderToasts()}
+            <DivAbsolute>
+                
+                {this.renderToasts()}
 
-                </DivAbsolute>
-            {/*</If>*/}
-            </>
+            </DivAbsolute>
         );
     }
 }

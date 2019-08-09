@@ -5,7 +5,7 @@ export default class LeftPanelPublic extends React.Component {
 
     render(){
         return (
-            <StyledDiv id='right-panel-public'>
+            <StyledDiv id='LeftPanelPublic'>
                 PAINEL DIREITO <br /> PAINEL DIREITO <br /> PAINEL DIREITO <br /> PAINEL DIREITO <br /> PAINEL DIREITO <br /> PAINEL DIREITO <br /> PAINEL DIREITO <br /> PAINEL DIREITO <br /> PAINEL DIREITO <br /> PAINEL DIREITO <br /> PAINEL DIREITO <br /> PAINEL DIREITO <br /> PAINEL DIREITO <br /> PAINEL DIREITO <br /> PAINEL DIREITO <br /> PAINEL DIREITO <br />
             </StyledDiv>
         );

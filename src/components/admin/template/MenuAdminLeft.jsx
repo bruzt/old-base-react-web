@@ -5,7 +5,7 @@ export default class MenuAdmin extends React.Component {
 
     render(){ 
         return (
-            <StyledNav className='nav' id='menu-admin'>  
+            <StyledNav className='nav'>  
                 NAVEGAÇÃO LATERAL
             </StyledNav>
         );
@@ -17,6 +17,3 @@ const StyledNav = styled.nav`
     height: 100%;
     justify-content: center;
 `;
-
-// col-lg-2 d-lg-flex d-none
-// col-lg-2 d-lg-none d-flex

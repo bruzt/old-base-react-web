@@ -8,7 +8,7 @@ import MenuAdminTop from './template/MenuAdminTop';
 import MenuAdminLeft from './template/MenuAdminLeft';
 import MainAdmin from './template/MainAdmin';
 
-class AdminHome extends React.Component {
+export default class AdminHome extends React.Component {
 
     constructor(props){
         super(props);
@@ -18,12 +18,12 @@ class AdminHome extends React.Component {
 
     render() {
         return (
-            <div className='container-fluid' id="home-admin">
+            <div className='container-fluid'>
 
                 <div className="row">
                     <div className="col p-0">
 
-                        <Header id='header-admin' admin='true' />
+                        <Header admin='true' />
 
                     </div>
                 </div>
@@ -51,14 +51,16 @@ class AdminHome extends React.Component {
                 </div>
 
                 <div className="container-fluid p-0">
+                    <div className="row">
+                        <div className="col p-0">
 
-                    <Footer id='footer-admin' />
+                            <Footer />
 
+                        </div>
+                    </div>
                 </div>
 
             </div>
         );
     }
 }
-
-export default AdminHome;

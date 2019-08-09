@@ -5,7 +5,7 @@ export default class MenuAdmin extends React.Component {
 
     render(){ 
         return (
-            <StyledNav className='navbar' id='menu-admin'> 
+            <StyledNav className='navbar'> 
                 NAVEGAÇÃO TOP
             </StyledNav>
         );

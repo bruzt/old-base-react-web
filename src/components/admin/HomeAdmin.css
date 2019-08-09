@@ -1,20 +1,17 @@
 
-#main-admin {
-    
-    border: solid 2px dodgerblue;
-}
 
-#menu-admin {
-  
-    border: solid 2px green;
-}
-
-#header-admin {
-
+header {
     border: solid 2px red;
 }
 
-#footer-admin {
+nav {
+    border: solid 2px green;
+}
 
+main {
+    border: solid 2px dodgerblue;
+}
+
+footer {
     border: solid 2px darkorange;
 }
