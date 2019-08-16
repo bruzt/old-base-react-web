@@ -13,7 +13,10 @@ export default class Header extends React.Component {
         sessionStorage.removeItem('_userLogin');
         localStorage.removeItem('_userLogin');
 
-        window.location.reload();
+        //this.props.history.push('/')
+        //this.props.history.replace('/admin') //.push('/admin');
+        
+        //window.location.reload();
     }
 
     render(){
@@ -48,9 +51,9 @@ export default class Header extends React.Component {
 
                         <If test={this.props.admin}>
                             <StyledAdminNavWrapper>
-                                <button type='button' className='btn' onClick={() => this.logOut()}>
+                                <Link to='/' className='btn' onClick={() => this.logOut()}>
                                     Logout <i className="fa fa-sign-out" />
-                                </button>
+                                </Link>
                             </StyledAdminNavWrapper>
                         </If>
 

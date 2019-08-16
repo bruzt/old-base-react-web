@@ -80,7 +80,9 @@ class LoginPage extends React.Component {
                 sessionStorage.setItem('_userLogin', JSON.stringify(response.data));
             }
 
-            window.location.reload();
+            //window.location.reload();
+
+            this.setState({ validToken: true });
             
         } catch (error) {
             console.error(error);

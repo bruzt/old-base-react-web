@@ -16,6 +16,8 @@ export default class AdminHome extends React.Component {
         document.title = 'React Admin';
     }
 
+    
+
     render() {
         return (
             <div className='container-fluid'>
