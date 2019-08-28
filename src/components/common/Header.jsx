@@ -27,7 +27,7 @@ export default class Header extends React.Component {
 
                         <StyledNavLogo className="navbar">
                             <Link to="/" className='nav-brand'>
-                                <img src={logoImg} alt="logo-img"/>
+                                <img src={logoImg} alt="logo-img" />
                             </Link>
                         </StyledNavLogo>
 
@@ -72,8 +72,8 @@ const StyledHeader = styled.header`
 
 const StyledNavLogo = styled.nav`
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     padding: 0;
     margin: 0;
     z-index: 10;
