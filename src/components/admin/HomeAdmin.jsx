@@ -1,7 +1,5 @@
 import React from 'react';
 
-import './HomeAdmin.css';
-
 import Header from '../common/Header';
 import Footer from '../common/Footer';
 import MenuAdminTop from './template/MenuAdminTop';

@@ -1,7 +1,5 @@
 import React from 'react';
 
-import  './Home.css';
-
 import Header from '../common/Header';
 import Footer from '../common/Footer';
 import MenuPublic from './template/MenuPublic';

@@ -15,4 +15,6 @@ export default class MainPublic extends React.Component {
 const StyledMain = styled.main`
     display: flex;
     justify-content: center;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
 `;

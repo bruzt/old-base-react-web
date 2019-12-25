@@ -16,4 +16,5 @@ const StyledNav = styled.nav`
     display: flex;
     height: 50px;
     justify-content: center;
+    border-bottom: 1px solid black;
 `;

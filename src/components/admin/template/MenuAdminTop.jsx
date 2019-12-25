@@ -15,4 +15,5 @@ export default class MenuAdmin extends React.Component {
 const StyledNav = styled.nav`
     display: flex;
     justify-content: center;
+    border-bottom: 1px solid black;
 `;
