@@ -140,7 +140,7 @@ function LoginPage(props) {
                                 <If test={loginModeState}>
                                     <div className="form-group">
                                         <div className="custom-control custom-switch">
-                                            <input type="checkbox" className='custom-control-input' name='keepConnected' id='switchKeepConnected' onChange={(event) => /*setkeepConnected(event)*/ console.log(event)} />
+                                            <input type="checkbox" className='custom-control-input' name='keepConnected' id='switchKeepConnected' onChange={(event) => setkeepConnected(event.target.checked)} />
                                             <label htmlFor='switchKeepConnected' className='custom-control-label'>Manter conectado</label>
                                         </div>
                                     </div>
