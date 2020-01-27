@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+//import { bindActionCreators } from 'redux';
+import { /*connect*/ useDispatch } from 'react-redux';
 import axios from 'axios';
 
 import { setToast } from '../../../redux/actions/toastActions';
@@ -10,7 +10,9 @@ import Header from '../../common/Header';
 import Footer from '../../common/Footer';
 import If from '../../common/If';
 
-function LoginPage(props) {
+export default function LoginPage() {
+
+    const dispatch = useDispatch();
 
     const [userState, setUser] = useState({
         name: '',
@@ -87,7 +89,8 @@ function LoginPage(props) {
         } catch (error) {
             console.error(error);
             error.response.data.errors.forEach( (message) => {
-                props.setToast({ messages: [{ title: 'Erro', text: message, color: 'red' }] });
+                dispatch(setToast({ messages: [{ title: 'Erro', text: message, color: 'red' }] }));
+                //props.setToast({ messages: [{ title: 'Erro', text: message, color: 'red' }] });
             });
         }
     }
@@ -232,6 +235,6 @@ function LoginPage(props) {
 
 /////////////////////////////////////
 
-const mapDispatchToProps = dispatch => bindActionCreators({ setToast }, dispatch);
+/*const mapDispatchToProps = dispatch => bindActionCreators({ setToast }, dispatch);
 
-export default connect(null, mapDispatchToProps)(LoginPage);
+export default connect(null, mapDispatchToProps)(LoginPage);*/
