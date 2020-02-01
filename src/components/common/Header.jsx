@@ -1,6 +1,6 @@
-import React from 'react';
+import React/*, { useContext }*/ from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled/*, { ThemeContext }*/ from 'styled-components';
 import ReactSwitch from 'react-switch';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -11,6 +11,8 @@ import logoImg from '../../assets/img/logo-200x100.jpg'
 import If from '../common/If';
 
 export default function Header(props) {
+
+    //console.log(useContext(ThemeContext))
 
     const theme = useSelector( (state) => state.theme);
     const dispatch = useDispatch();
