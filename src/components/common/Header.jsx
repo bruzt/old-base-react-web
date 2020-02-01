@@ -1,73 +1,97 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import ReactSwitch from 'react-switch';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { setTheme } from '../../redux/actions/themeActions';
 
 import logoImg from '../../assets/img/logo-200x100.jpg'
 
 import If from '../common/If';
 
-export default class Header extends React.Component {
+export default function Header(props) {
 
-    logOut(){
+    const theme = useSelector( (state) => state.theme);
+    const dispatch = useDispatch();
+
+    function logOut(){
 
         sessionStorage.removeItem('_userLogin');
         localStorage.removeItem('_userLogin');
 
-        //this.props.history.push('/')
-        //this.props.history.replace('/admin') //.push('/admin');
+        //props.history.push('/')
+        //props.history.replace('/admin') //.push('/admin');
         
         //window.location.reload();
     }
 
-    render(){
-        return (
-            <StyledHeader>
-                
-                    <div className="col">
 
-                        <StyledNavLogo className="navbar">
-                            <Link to="/" className='nav-brand'>
-                                <img src={logoImg} alt="logo-img" />
-                            </Link>
-                        </StyledNavLogo>
+    return (
+        <StyledHeader>
+            
+                <div className="col">
+
+                    <StyledNavLogo className="navbar">
+                        <Link to="/" className='nav-brand'>
+                            <img src={logoImg} alt="logo-img" />
+                        </Link>
+                    </StyledNavLogo>
+
+                </div>
+
+                <MidHeader className="col">
+
+                    <h6>CABEÇALHO</h6>
+                    
+                </MidHeader>
+
+                <div className="col d-flex">
+                    <div className="row">
+                        
+                        <StyledThemeSwitchWrapper>
+                            
+                            <ReactSwitch
+                                onChange={() => dispatch(setTheme())}
+                                checked={(theme.title === 'dark') ? true : false}
+                                height={15}
+                                width={40}
+                                handleDiameter={20}
+                                onColor={theme.secondary}
+                                offColor={theme.secondary}
+                                onHandleColor={theme.background}
+                                offHandleColor={theme.background}
+                            />
+                        </StyledThemeSwitchWrapper>
 
                     </div>
-
-                    <MidHeader className="col">
-
-                        <h6>CABEÇALHO</h6>
-                        
-                    </MidHeader>
-
-                    <div className="col d-flex">
-
-                        <If test={this.props.login}>
-                            <StyledAdminNavWrapper>
+                    <div className="row">
+                        <If test={props.login}>
+                            <StyledAdminWrapper>
                                 <Link to='/admin' className='btn'>
                                     Login <i className="fa fa-sign-in" />
                                 </Link>
-                            </StyledAdminNavWrapper>
+                            </StyledAdminWrapper>
                         </If>
 
-                        <If test={this.props.admin}>
-                            <StyledAdminNavWrapper>
-                                <Link to='/' className='btn' onClick={() => this.logOut()}>
+                        <If test={props.admin}>
+                            <StyledAdminWrapper>
+                                <Link to='/' className='btn' onClick={() => logOut()}>
                                     Logout <i className="fa fa-sign-out" />
                                 </Link>
-                            </StyledAdminNavWrapper>
+                            </StyledAdminWrapper>
                         </If>
-
-                    </div>  
-                    
-            </StyledHeader>
-        );
-    }
+                    </div>
+                </div>  
+                
+        </StyledHeader>
+    );
 }
 
 const StyledHeader = styled.header`
     display: flex;
     height: 100px;
-    background: grey;
+    background: ${(props) => props.theme.primary};
 `;
 
 const StyledNavLogo = styled.nav`
@@ -79,7 +103,14 @@ const StyledNavLogo = styled.nav`
     z-index: 10;
 `;
 
-const StyledAdminNavWrapper = styled.nav`
+const StyledThemeSwitchWrapper = styled.div`
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    z-index: 10;
+`;
+
+const StyledAdminWrapper = styled.div`
     position: absolute;
     right: 1px;
     bottom: 1px;

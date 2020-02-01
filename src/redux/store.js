@@ -1,11 +1,13 @@
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
-import toastReducer from './reducers/toastReducers';
+import toastReducers from './reducers/toastReducers';
+import themeReducers from './reducers/themeReducers';
 
 const reducers = combineReducers({
 
-    toast: toastReducer
+    toast: toastReducers,
+    theme : themeReducers
 
 });
 

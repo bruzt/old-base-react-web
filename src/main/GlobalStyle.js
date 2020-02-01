@@ -14,8 +14,9 @@ export default createGlobalStyle`
     }
 
     body {
-        background: #F5F5F5;
+        background: ${(props) => props.theme.background};
         font-size: 14px;
+        color: ${(props) => props.theme.text};
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
     }
