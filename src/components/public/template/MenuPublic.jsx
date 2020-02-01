@@ -17,4 +17,5 @@ const StyledNav = styled.nav`
     height: 50px;
     justify-content: center;
     border-bottom: 1px solid black;
+    background: ${(props) => props.theme.secondary}
 `;

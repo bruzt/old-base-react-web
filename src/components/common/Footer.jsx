@@ -17,5 +17,5 @@ const StyledFooter = styled.footer`
     height: 100px;
     justify-content: center;
     align-items: center;
-    background: grey;
+    background: ${(props) => props.theme.primary};
 `;

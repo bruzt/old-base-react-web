@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 //import { bindActionCreators } from 'redux';
 import { /*connect*/ useDispatch } from 'react-redux';
 import axios from 'axios';
+import styled from 'styled-components';
+import { lighten } from 'polished';
 
 import { setToast } from '../../../redux/actions/toastActions';
 
@@ -107,7 +109,7 @@ export default function LoginPage() {
     } else {
 
         return (
-            <div id='home-login'>
+            <Container id='home-login'>
                 
                 <Header id='header-login' />
 
@@ -172,7 +174,7 @@ export default function LoginPage() {
                     </div>
                 </div>
                 
-            </div>
+            </Container>
         );
     }
 
@@ -238,3 +240,10 @@ export default function LoginPage() {
 /*const mapDispatchToProps = dispatch => bindActionCreators({ setToast }, dispatch);
 
 export default connect(null, mapDispatchToProps)(LoginPage);*/
+
+const Container = styled.div`
+
+    .card {
+        background: ${(props) => lighten(0.15, props.theme.background)};
+    }
+`;
